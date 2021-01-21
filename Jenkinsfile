@@ -1,6 +1,12 @@
 pipeline {
     agent none
 
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+        DOTNET_CLI_HOME = "/tmp/DOTNET_CLI_HOME"
+    }
+
     stages {
         stage('Build') {
             agent {
@@ -9,8 +15,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls'
-                sh 'cd DotnetTemplate.Web'
-                sh 'dotnet build'
+                sh 'sudo dotnet build'
             }
         }
         stage('dotnet Test') {
@@ -19,7 +24,7 @@ pipeline {
             }
             steps {
                 sh 'cd DotnetTemplate.Web.Tests'
-                sh 'dotnet test'
+                sh 'sudo dotnet test'
             }
         }
         stage('npm Test') {
