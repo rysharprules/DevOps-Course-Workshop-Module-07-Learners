@@ -32,7 +32,7 @@ pipeline {
                 docker { image 'node:14-alpine' }
             }
             steps {
-                sh 'cd DotnetTemplate.Web && npm i && npm t'
+                sh 'cd DotnetTemplate.Web && npm i && npm t && npm run lint'
             }
         }
     }
