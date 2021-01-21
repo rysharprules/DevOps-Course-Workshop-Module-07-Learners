@@ -28,7 +28,6 @@ pipeline {
                 cd DotnetTemplate.Web
                 npm i
                 npm t
-                npm run lint
             }
         }
     }
