@@ -4,17 +4,19 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                cd DotnetTemplate.Web
+                dotnet build
             }
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
+                cd DotnetTemplate.Web.Tests
+                dotnet test
             }
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying....'
+                cd DotnetTemplate.Web && npm i && npm t && npm run lint
             }
         }
     }
