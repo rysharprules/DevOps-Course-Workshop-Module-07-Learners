@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh 'pwd'
                 sh 'ls'
-                sh 'sudo dotnet build'
+                sh 'dotnet build'
             }
         }
         stage('dotnet Test') {
@@ -24,7 +24,7 @@ pipeline {
             }
             steps {
                 sh 'cd DotnetTemplate.Web.Tests'
-                sh 'sudo dotnet test'
+                sh 'dotnet test'
             }
         }
         stage('npm Test') {
