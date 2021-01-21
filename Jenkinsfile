@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
                 cd DotnetTemplate.Web
-                dotnet build
+                sh 'dotnet build'
             }
         }
         stage('dotnet Test') {
@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 cd DotnetTemplate.Web.Tests
-                dotnet test
+                sh 'dotnet test'
             }
         }
         stage('npm Test') {
@@ -26,9 +26,9 @@ pipeline {
             }
             steps {
                 cd DotnetTemplate.Web
-                npm -v
-                npm i
-                npm t
+                sh 'npm -v'
+                sh 'npm i'
+                sh 'npm t'
             }
         }
     }
