@@ -26,6 +26,7 @@ pipeline {
             }
             steps {
                 cd DotnetTemplate.Web
+                npm -v
                 npm i
                 npm t
             }
