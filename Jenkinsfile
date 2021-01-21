@@ -8,15 +8,18 @@ pipeline {
                 dotnet build
             }
         }
-        stage('Test') {
+        stage('dotnet Test') {
             steps {
                 cd DotnetTemplate.Web.Tests
                 dotnet test
             }
         }
-        stage('Deploy') {
+        stage('npm Test') {
             steps {
-                cd DotnetTemplate.Web && npm i && npm t && npm run lint
+                cd DotnetTemplate.Web
+                npm i
+                npm t
+                npm run lint
             }
         }
     }
